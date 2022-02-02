@@ -1,9 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HazardVolume : MonoBehaviour
 {
+    [SerializeField] public Text loseText = null;
+    [SerializeField] public Text menuText = null;
+
+    private void Awake()
+    {
+        loseText.enabled = false;
+        menuText.enabled = false;
+    }
     private void OnTriggerEnter(Collider other)
     {
         // detect if it's the player
@@ -13,6 +22,9 @@ public class HazardVolume : MonoBehaviour
         {
             // kill player
             playerShip.Kill();
+            Destroy(gameObject);
+            loseText.enabled = true;
+            menuText.enabled = true;
         }
     }
 }

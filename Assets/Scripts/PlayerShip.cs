@@ -50,5 +50,7 @@ public class PlayerShip : MonoBehaviour
     {
         Debug.Log("Player has been killed!");
         this.gameObject.SetActive(false);
+        //maybe add particle effects?
+
     }
 }
