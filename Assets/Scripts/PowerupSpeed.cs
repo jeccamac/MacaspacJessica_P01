@@ -13,4 +13,20 @@ public class PowerupSpeed : MonoBehaviour
 
     Collider _colliderToDeactivate = null;
     bool _poweredUp = false;
+
+    private void Awake()
+    {
+        _colliderToDeactivate = GetComponent<Collider>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayerShip playerShip
+                = other.gameObject.GetComponent<PlayerShip>();
+        // if we have a valid player and not already powered up
+        if (playerShip != null && _poweredUp == false)
+        {
+            //start powerup timer, restart if it's already started
+            StartCoroutine(PowerUpSequence(playerShip));
+        }
+    }
 }
