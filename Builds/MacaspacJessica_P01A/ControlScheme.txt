@@ -1,0 +1,7 @@
+W - Up
+S - Down
+A - Left
+D - Right
+
+BACKSPACE - Restart
+ESCAPE - Quit
