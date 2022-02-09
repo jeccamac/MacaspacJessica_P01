@@ -5247,6 +5247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055c284bd7bfb68469bd72dc7605a279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedIncreaseAmount: 20
+  _powerupDuration: 5
+  _visualsToDeactivate: {fileID: 356001397}
 --- !u!135 &220245724
 SphereCollider:
   m_ObjectHideFlags: 0
