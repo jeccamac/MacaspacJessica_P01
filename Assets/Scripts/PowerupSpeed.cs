@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PowerupSpeed : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Powerup Settings")]
+    [SerializeField] float _speedIncreaseAmount = 20;
+    [SerializeField] float _powerupDuration = 5;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Setup")]
+    [SerializeField] GameObject _visualsToDeactivate = null;
+
+    Collider _colliderToDeactivate = null;
+    bool _poweredUp = false;
 }
