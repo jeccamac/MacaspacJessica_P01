@@ -8,11 +8,16 @@ public class PlayerShip : MonoBehaviour
     [SerializeField] float _moveSpeed = 12f;
     [SerializeField] float _turnSpeed = 3f;
 
+    [Header("Feedback")]
+    [SerializeField] TrailRenderer _trail = null;
+
     Rigidbody _rb = null; // variable of Rigidbody to store data
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>(); // search gameObject it's attached to for Rigidbody component
+
+        _trail.enabled = false;
     }
 
     // Physics requires a consistent time-step for calculations, FixedUpdate is called every X times a second, mo matter current workload, Update called asap (every frame)
@@ -50,7 +55,18 @@ public class PlayerShip : MonoBehaviour
     {
         Debug.Log("Player has been killed!");
         this.gameObject.SetActive(false);
-        //maybe add particle effects?
+        // maybe add particle effects?
 
+    }
+
+    public void SetSpeed(float speedChange)
+    {
+        _moveSpeed += speedChange;
+        // TODO audio/visuals
+    }
+
+    public void SetBoosters(bool activeState)
+    {
+        _trail.enabled = activeState;
     }
 }

@@ -17,6 +17,8 @@ public class PowerupSpeed : MonoBehaviour
     private void Awake()
     {
         _colliderToDeactivate = GetComponent<Collider>();
+
+        EnableObject();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +28,7 @@ public class PowerupSpeed : MonoBehaviour
         if (playerShip != null && _poweredUp == false)
         {
             //start powerup timer, restart if it's already started
-            StartCoroutine(PowerUpSequence(playerShip));
+            StartCoroutine(PowerupSequence(playerShip));
         }
     }
 
