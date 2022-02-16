@@ -10,14 +10,17 @@ public class PlayerShip : MonoBehaviour
 
     [Header("Feedback")]
     [SerializeField] TrailRenderer _trail = null;
+    [SerializeField] MeshRenderer _shield = null;
 
     Rigidbody _rb = null; // variable of Rigidbody to store data
+    public bool _invincibility = false;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>(); // search gameObject it's attached to for Rigidbody component
 
         _trail.enabled = false;
+        _shield.enabled = false;
     }
 
     // Physics requires a consistent time-step for calculations, FixedUpdate is called every X times a second, mo matter current workload, Update called asap (every frame)
@@ -68,5 +71,16 @@ public class PlayerShip : MonoBehaviour
     public void SetBoosters(bool activeState)
     {
         _trail.enabled = activeState;
+    }
+
+    public void ActivateShield(bool activeState)
+    {
+        // invincibility
+        _invincibility = activeState;
+    }
+
+    public void SetShield(bool activeState)
+    {
+        _shield.enabled = activeState; ; // visuals
     }
 }

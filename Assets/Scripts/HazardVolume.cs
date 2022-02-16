@@ -20,11 +20,18 @@ public class HazardVolume : MonoBehaviour
         // if we found player, continue
         if (playerShip != null)
         {
-            // kill player
-            playerShip.Kill();
-            Destroy(gameObject);
-            loseText.enabled = true;
-            menuText.enabled = true;
+            // if player is not invincible
+            if (playerShip._invincibility == false)
+            {
+                Debug.Log("Die!");
+                // kill player
+                playerShip.Kill();
+
+                Destroy(gameObject);
+                loseText.enabled = true;
+                menuText.enabled = true;
+            } else { Debug.Log("Invincible!"); }
+       
         }
     }
 }
