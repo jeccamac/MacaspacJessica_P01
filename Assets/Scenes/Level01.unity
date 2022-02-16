@@ -3781,6 +3781,11 @@ PrefabInstance:
       propertyPath: _shield
       value: 
       objectReference: {fileID: 5132181385065549853}
+    - target: {fileID: 5132181384124448594, guid: d66d273f50ad86846b1438dea419b82e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 5132181384124448604, guid: d66d273f50ad86846b1438dea419b82e,
         type: 3}
       propertyPath: m_Name

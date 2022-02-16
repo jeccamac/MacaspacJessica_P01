@@ -8,10 +8,13 @@ public class HazardVolume : MonoBehaviour
     [SerializeField] public Text loseText = null;
     [SerializeField] public Text menuText = null;
 
+    private AudioSource _soundKill;
+
     private void Awake()
     {
         loseText.enabled = false;
         menuText.enabled = false;
+        _soundKill = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,8 +29,9 @@ public class HazardVolume : MonoBehaviour
                 Debug.Log("Die!");
                 // kill player
                 playerShip.Kill();
+                _soundKill.Play();
 
-                Destroy(gameObject);
+                Destroy(gameObject, 1f);
                 loseText.enabled = true;
                 menuText.enabled = true;
             } else { Debug.Log("Invincible!"); }

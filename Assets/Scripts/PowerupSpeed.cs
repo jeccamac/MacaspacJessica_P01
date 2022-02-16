@@ -13,12 +13,14 @@ public class PowerupSpeed : MonoBehaviour
 
     Collider _colliderToDeactivate = null;
     bool _poweredUp = false;
+    private AudioSource _soundPowerup;
 
     private void Awake()
     {
         _colliderToDeactivate = GetComponent<Collider>();
 
         EnableObject();
+        _soundPowerup = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -30,6 +32,8 @@ public class PowerupSpeed : MonoBehaviour
             //start powerup timer, restart if it's already started
             StartCoroutine(PowerupSequence(playerShip));
         }
+
+        _soundPowerup.Play();
     }
 
     IEnumerator PowerupSequence(PlayerShip playerShip)

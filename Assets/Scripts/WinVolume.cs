@@ -8,10 +8,12 @@ public class WinVolume : MonoBehaviour
     [SerializeField] public Text winText = null;
     [SerializeField] public Text menuText = null;
 
+    private AudioSource _soundWin;
     private void Awake()
     {
         winText.enabled = false;
         menuText.enabled = false;
+        _soundWin = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,7 +24,8 @@ public class WinVolume : MonoBehaviour
         if (playerShip != null)
         {
             other.gameObject.SetActive(false);
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
+            _soundWin.Play();
             winText.enabled = true;
             menuText.enabled = true;
         }

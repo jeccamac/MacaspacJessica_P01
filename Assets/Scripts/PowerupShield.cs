@@ -8,16 +8,18 @@ public class PowerupShield : MonoBehaviour
     [SerializeField] float _powerupDuration = 5;
 
     [Header("Setup")]
-    [SerializeField] GameObject _shieldToDeactivate = null; //visuals ONLY
+    [SerializeField] GameObject _visualsToDeactivate = null; //visuals ONLY
 
     Collider _colliderToDeactivate = null;
     bool _shieldUp = false;
+    private AudioSource _soundPowerup;
 
     private void Awake()
     {
         _colliderToDeactivate = GetComponent<Collider>();
 
         EnableShield();
+        _soundPowerup = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -29,6 +31,8 @@ public class PowerupShield : MonoBehaviour
             //start powerup timer, restart if it's already started
             StartCoroutine(PowerupSequence(playerShip));
         }
+
+        _soundPowerup.Play();
     }
 
     IEnumerator PowerupSequence(PlayerShip playerShip)
@@ -74,7 +78,7 @@ public class PowerupShield : MonoBehaviour
         // disable collider, so it cant be retriggered
         _colliderToDeactivate.enabled = false;
         // disable visuals, to simulate deactivated
-        _shieldToDeactivate.SetActive(false);
+        _visualsToDeactivate.SetActive(false);
         // TODO reactivate particle flash/audio
     }
 
@@ -83,7 +87,7 @@ public class PowerupShield : MonoBehaviour
         // enable collider, so it can be retriggered
         _colliderToDeactivate.enabled = true;
         // enable visuals again, to draw player attention
-        _shieldToDeactivate.SetActive(true);
+        _visualsToDeactivate.SetActive(true);
         // TODO reactivate particle flash/audio
     }
 }
