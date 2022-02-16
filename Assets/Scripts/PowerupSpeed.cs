@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerupSpeed : MonoBehaviour
 {
     [Header("Powerup Settings")]
     [SerializeField] float _speedIncreaseAmount = 20;
     [SerializeField] float _powerupDuration = 5;
+    [SerializeField] public Text _speedText = null;
 
     [Header("Setup")]
     [SerializeField] GameObject _visualsToDeactivate = null;
@@ -21,6 +23,7 @@ public class PowerupSpeed : MonoBehaviour
 
         EnableObject();
         _soundPowerup = GetComponent<AudioSource>();
+        _speedText.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -31,19 +34,20 @@ public class PowerupSpeed : MonoBehaviour
         {
             //start powerup timer, restart if it's already started
             StartCoroutine(PowerupSequence(playerShip));
-        }
-
-        _soundPowerup.Play();
+        }        
     }
 
     IEnumerator PowerupSequence(PlayerShip playerShip)
     {
         // set boolean for detecting lockout
         _poweredUp = true;
+        _speedText.enabled = true;
+        _soundPowerup.Play();
 
         ActivatePowerup(playerShip);
         // simulate this object being disabled. We dont REALLY want to disable it bc we still need script behavior to continue functioning
         DisableObject();
+        
 
         // wait for the required duration
         yield return new WaitForSeconds(_powerupDuration);
@@ -53,6 +57,7 @@ public class PowerupSpeed : MonoBehaviour
 
         // set boolean to release lockout
         _poweredUp = false;
+        _speedText.enabled = false;
     }
 
     void ActivatePowerup(PlayerShip playerShip)

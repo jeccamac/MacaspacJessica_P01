@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerupShield : MonoBehaviour
 {
     [Header("Powerup Settings")]
     [SerializeField] float _powerupDuration = 5;
+    [SerializeField] public Text _shieldText = null;
 
     [Header("Setup")]
     [SerializeField] GameObject _visualsToDeactivate = null; //visuals ONLY
@@ -20,6 +22,7 @@ public class PowerupShield : MonoBehaviour
 
         EnableShield();
         _soundPowerup = GetComponent<AudioSource>();
+        _shieldText.enabled = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -31,14 +34,14 @@ public class PowerupShield : MonoBehaviour
             //start powerup timer, restart if it's already started
             StartCoroutine(PowerupSequence(playerShip));
         }
-
-        _soundPowerup.Play();
     }
 
     IEnumerator PowerupSequence(PlayerShip playerShip)
     {
         // set boolean for detecting lockout
         _shieldUp = true;
+        _shieldText.enabled = true;
+        _soundPowerup.Play();
 
         ActivateShield(playerShip);
         // simulate this object being disabled. We dont REALLY want to disable it bc we still need script behavior to continue functioning
@@ -52,6 +55,7 @@ public class PowerupShield : MonoBehaviour
 
         // set boolean to release lockout
         _shieldUp = false;
+        _shieldText.enabled = false;
     }
 
     void ActivateShield(PlayerShip playerShip)
