@@ -2,9 +2,12 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraFollow
+    - Collectible
     - GameInput
     - HazardVolume
     - PlayerShip
+    - PowerupShield
+    - PowerupSpeed
     - WinVolume
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -44,6 +47,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 96
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -53,21 +62,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11310}
     - Class: 114
-      Script: {instanceID: 11732}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11980}
+      Script: {instanceID: 11734}
     - Class: 114
-      Script: {instanceID: 12078}
+      Script: {instanceID: 11982}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 12080}
     - Class: 114
-      Script: {instanceID: 12424}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 12596}
+      Script: {instanceID: 12426}
     - Class: 114
-      Script: {instanceID: 12608}
+      Script: {instanceID: 12460}
     - Class: 114
-      Script: {instanceID: 12946}
+      Script: {instanceID: 12562}
+    - Class: 114
+      Script: {instanceID: 12602}
+    - Class: 114
+      Script: {instanceID: 12614}
+    - Class: 114
+      Script: {instanceID: 12952}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -199,6 +214,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 6297b731b15bb3b67dfb8c7540b5aa46
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Collectible
   - hash:
       serializedVersion: 2
       Hash: 0dbc3be398b4869a5c8d0d8481ee402c
@@ -405,16 +426,28 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 96e116f0052707cedc9645ac66bd8325
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameInput
+  - hash:
+      serializedVersion: 2
+      Hash: b881238fdf94d5ed0fddd494212e863f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PowerupSpeed
   - hash:
       serializedVersion: 2
       Hash: 8001a5f7502aab37e42206da015e6914
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: ecd9521fe4d0e26ba6bb6865d78293dd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PowerupShield
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -429,7 +462,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 5b028bc6ea0e0224df28939be5610a5d
+      Hash: e9787ed9bae204b1482c9fb94f88ced9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerShip
@@ -550,4 +583,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/Level01.unity
-  playerPath: D:/Game Development/Unity Projects/MacaspacJessica_P01A/Builds/MacaspacJessica_P01A/MacaspacJessica_P01A.exe
+  playerPath: D:/Game Development/Unity Projects/MacaspacJessica_P01/Builds/MacaspacJessica_P01B/MacaspacJessica_P01.exe
